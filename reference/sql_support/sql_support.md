@@ -29,6 +29,14 @@ has_toc: false
 
 *Функции и операторы даты и времени*
 
+| Функция | Запрос | СУБД
+|:-|:-|:-
+| CURRENT_DATE | SELECT CAST(CURRENT_DATE AS DATE)<br> FROM table1<br> datasource_type = 'ADB';<br>SELECT CAST(CURRENT_DATE AS DATE)<br> FROM table1<br> datasource_type = 'ADP';| ADB,<br>ADP
+| CURRENT_DATE | SELECT CURRENT_DATE<br> FROM table1<br> datasource_type = 'ADB';<br>SELECT CURRENT_DATE<br> FROM table1<br> datasource_type = 'ADP';| ADB,<br>ADP
+| CURRENT_TIME | SELECT CAST(CURRENT_TIME AS TIME)<br> FROM table1<br> datasource_type = 'ADB';<br>SELECT CAST(CURRENT_TIME AS TIME)<br> FROM table1<br> datasource_type = 'ADP';| ADB,<br>ADP
+| CURRENT_TIME | SELECT CURRENT_TIME<br> FROM table1<br>;<br>SELECT CURRENT_TIME<br> FROM table1<br>;| N/A
+
+
 <details markdown="block">
   <summary>
 
