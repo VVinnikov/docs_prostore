@@ -34,8 +34,28 @@ has_toc: false
 | CURRENT_DATE | SELECT CAST(CURRENT_DATE AS DATE)<br> FROM table1<br> datasource_type = 'ADB';<br>SELECT CAST(CURRENT_DATE AS DATE)<br> FROM table1<br> datasource_type = 'ADP';| ADB,<br>ADP
 | CURRENT_DATE | SELECT CURRENT_DATE<br> FROM table1<br> datasource_type = 'ADB';<br>SELECT CURRENT_DATE<br> FROM table1<br> datasource_type = 'ADP';| ADB,<br>ADP
 | CURRENT_TIME | SELECT CAST(CURRENT_TIME AS TIME)<br> FROM table1<br> datasource_type = 'ADB';<br>SELECT CAST(CURRENT_TIME AS TIME)<br> FROM table1<br> datasource_type = 'ADP';| ADB,<br>ADP
-| CURRENT_TIME | SELECT CURRENT_TIME<br> FROM table1<br>;<br>SELECT CURRENT_TIME<br> FROM table1<br>;| N/A
-
+| CURRENT_TIME | SELECT CURRENT_TIME<br> FROM table1;<br>SELECT CURRENT_TIME<br> FROM table1;| --
+| CURRENT_TIMESTAMP | SELECT CAST(CURRENT_TIMESTAMP AS TIMESTAMP)<br> FROM table1<br> datasource_type = 'ADB';<br>
+SELECT CAST(CURRENT_TIMESTAMP AS TIMESTAMP)<br> FROM table1<br> datasource_type = 'ADP'; | ADB,<br>ADP
+| CURRENT_TIMESTAMP | SELECT CURRENT_TIMESTAMP<br> FROM table1<br> datasource_type = 'ADB';<br>
+SELECT CURRENT_TIMESTAMP<br> FROM table1<br> datasource_type = 'ADP'; | ADB,<br>ADP
+| EXTRACT(FROM DATE) |
+SELECT CAST(EXTRACT(EPOCH FROM DATE '2001-02-16') AS INT)<br> FROM table1<br> datasource_type = 'ADB';<br>
+SELECT CAST(EXTRACT(DOY FROM DATE '2001-02-16') AS INT)<br> FROM table1<br> datasource_type = 'ADB';<br>
+SELECT CAST(EXTRACT(DOW FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';<br>
+SELECT CAST(EXTRACT(WEEK FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';<br>
+SELECT CAST(EXTRACT(CENTURY FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';<br>
+SELECT CAST(EXTRACT(QUARTER FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';<br>
+SELECT EXTRACT(QUARTER FROM DATE '2001-02-16') FROM table1 datasource_type = 'ADQM';<br>
+SELECT CAST(EXTRACT(YEAR FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';<br>
+SELECT EXTRACT(YEAR FROM DATE '2001-02-16') FROM table1 datasource_type = 'ADQM';<br>
+SELECT CAST(EXTRACT(MONTH FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';<br>
+SELECT EXTRACT(MONTH FROM DATE '2001-02-16') FROM table1 datasource_type = 'ADQM';<br>
+SELECT CAST(EXTRACT(MONTH FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADP';<br>
+SELECT CAST(EXTRACT(DAY FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';<br>
+SELECT EXTRACT(DAY FROM DATE '2001-02-16') FROM table1 datasource_type = 'ADQM';<br>
+SELECT CAST(EXTRACT(DAY FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADP'; |
+ADB,<br>ADQM,<br>ADP
 
 <details markdown="block">
   <summary>
