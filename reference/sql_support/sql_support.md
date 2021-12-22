@@ -39,8 +39,7 @@ has_toc: false
 SELECT CAST(CURRENT_TIMESTAMP AS TIMESTAMP)<br> FROM table1<br> datasource_type = 'ADP'; | ADB,<br>ADP
 | CURRENT_TIMESTAMP | SELECT CURRENT_TIMESTAMP<br> FROM table1<br> datasource_type = 'ADB';<br>
 SELECT CURRENT_TIMESTAMP<br> FROM table1<br> datasource_type = 'ADP'; | ADB,<br>ADP
-| EXTRACT(FROM DATE) |
-SELECT CAST(EXTRACT(EPOCH FROM DATE '2001-02-16') AS INT)<br> FROM table1<br> datasource_type = 'ADB';<br>
+| EXTRACT(FROM DATE) | SELECT CAST(EXTRACT(EPOCH FROM DATE '2001-02-16') AS INT)<br> FROM table1<br> datasource_type = 'ADB';<br>
 SELECT CAST(EXTRACT(DOY FROM DATE '2001-02-16') AS INT)<br> FROM table1<br> datasource_type = 'ADB';<br>
 SELECT CAST(EXTRACT(DOW FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';<br>
 SELECT CAST(EXTRACT(WEEK FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';<br>
