@@ -29,31 +29,31 @@ has_toc: false
 
 *Функции и операторы даты и времени*
 
-| `CURRENT_DATE`, СУБД: ADB, ADP
+| CURRENT_DATE, СУБД: ADB, ADP
 |:---
 | `SELECT CAST(CURRENT_DATE AS DATE) FROM table1 datasource_type = 'ADB';` |
 | `SELECT CAST(CURRENT_DATE AS DATE) FROM table1 datasource_type = 'ADP';` |
 | `SELECT CURRENT_DATE FROM table1 datasource_type = 'ADB';` |
 | `SELECT CURRENT_DATE FROM table1 datasource_type = 'ADP';` |
 
-| `CURRENT_TIME`, СУБД: ADB, ADP
+| CURRENT_TIME, СУБД: ADB, ADP
 |:---
 | `SELECT CAST(CURRENT_TIME AS TIME) FROM table1 datasource_type = 'ADB';` |
 | `SELECT CAST(CURRENT_TIME AS TIME) FROM table1 datasource_type = 'ADP';` |
 
-| `CURRENT_TIME`, Не поддерживается
+| CURRENT_TIME, Не поддерживается
 |:---
 | `SELECT CURRENT_TIME FROM table1;`|
 | `SELECT CURRENT_TIME FROM table1;`|
 
-| `CURRENT_TIMESTAMP`, СУБД: ADB, ADP
+| CURRENT_TIMESTAMP, СУБД: ADB, ADP
 |:---
 | `SELECT CAST(CURRENT_TIMESTAMP AS TIMESTAMP) FROM table1 datasource_type = 'ADB';` |
 | `SELECT CAST(CURRENT_TIMESTAMP AS TIMESTAMP) FROM table1 datasource_type = 'ADP';` |
 | `SELECT CURRENT_TIMESTAMP FROM table1 datasource_type = 'ADB';` |
 | `SELECT CURRENT_TIMESTAMP FROM table1 datasource_type = 'ADP';` |
 
-| `EXTRACT(FROM DATE)`, СУБД: ADB, ADQM, ADP
+| EXTRACT(FROM DATE), СУБД: ADB, ADQM, ADP
 |:---
 | `SELECT CAST(EXTRACT(EPOCH FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';` |
 | `SELECT CAST(EXTRACT(DOY FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';` |
@@ -71,7 +71,7 @@ has_toc: false
 | `SELECT EXTRACT(DAY FROM DATE '2001-02-16') FROM table1 datasource_type = 'ADQM';`|
 | `SELECT CAST(EXTRACT(DAY FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADP';` |
 
-| `EXTRACT(FROM DATE)`, СУБД: ADB, ADP
+| EXTRACT(FROM DATE), СУБД: ADB, ADP
 |:---
 | `SELECT CAST(EXTRACT(DECADE FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';`|
 | `SELECT CAST(EXTRACT(DECADE FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADP';`|
@@ -80,7 +80,7 @@ has_toc: false
 | `SELECT CAST(EXTRACT(ISODOW FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADB';`|
 | `SELECT CAST(EXTRACT(ISODOW FROM DATE '2001-02-16') AS INT) FROM table1 datasource_type = 'ADP';` |
 
-| `EXTRACT(FROM TIME)`, СУБД: ADB, ADP
+| EXTRACT(FROM TIME), СУБД: ADB, ADP
 |:---
 | `SELECT CAST(EXTRACT(HOUR FROM TIME '20:38:40') AS INT) FROM table1 datasource_type = 'ADB';` |
 | `SELECT CAST(EXTRACT(HOUR FROM TIME '20:38:40') AS INT) FROM table1 datasource_type = 'ADP';` |
@@ -93,7 +93,7 @@ has_toc: false
 | `SELECT CAST(EXTRACT(MICROSECOND FROM TIME '20:38:40') AS INT) FROM table1 datasource_type = 'ADB';` |
 | `SELECT CAST(EXTRACT(MICROSECOND FROM TIME '20:38:40') AS INT) FROM table1 datasource_type = 'ADP';` |
 
-| `EXTRACT(FROM TIMESTAMP)`, СУБД: ADB, ADQM, ADP
+| EXTRACT(FROM TIMESTAMP), СУБД: ADB, ADQM, ADP
 |:---
 | `SELECT CAST(EXTRACT(DOW FROM TIMESTAMP '2001-02-16 00:00:00') AS INT) FROM table1 datasource_type = 'ADB';` |
 | `SELECT CAST(EXTRACT(DOW FROM TIMESTAMP '2001-02-16 00:00:00') AS INT) FROM table1 datasource_type = 'ADP';` |
