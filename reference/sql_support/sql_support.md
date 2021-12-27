@@ -276,9 +276,72 @@ has_toc: false
 |:---
 | `SELECT ROUND(-2.5) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
+### FLOOR {#FloorSQL}
 
+| FLOOR: ADB, ADQM, ADP |
+|:---
+| `SELECT FLOOR(-2.5) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
 
+### CEIL {#CeilSQL}
 
+| CEIL: ADB, ADQM, ADP |
+|:---
+| `SELECT CEIL(-2.5) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+
+### CEILING {#CeilingSQL}
+
+| CEILING: ADB, ADQM, ADP |
+|:---
+| `SELECT CEILING(-2.5) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+
+### BIT_AND {#BitandSQL}
+
+| BIT_AND: ADB, ADP |
+|:---
+| `SELECT BIT_AND(numeric_col) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+
+### BIT_OR {#BitorSQL}
+
+| BIT_OR: ADB, ADP |
+|:---
+| `SELECT BIT_OR(numeric_col) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+
+### DEGREES {#DegreesSQL}
+
+| DEGREES: ADB, ADP |
+|:---
+| `SELECT DEGREES(3.1415269) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+
+### RADIANS {#RadiansSQL}
+
+| RADIANS: ADB, ADP |
+|:---
+| `SELECT RADIANS(180.0) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+
+### SIGN {#SignSQL}
+
+| RADIANS: ADB, ADP |
+|:---
+| `SELECT SIGN(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+| `SELECT SIGN(CAST(-2 AS FLOAT)) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+
+### SIN, COS, TAN, COT {#SincostancotSQL}
+
+| SIN, COS, TAN, COT: ADB, ADQM, ADP |
+|:---
+| `SELECT SIN(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
+| `SELECT COS(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
+| `SELECT TAN(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
+| `SELECT COT(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
+
+### ASIN, ACOS, ATAN, ATAN2 {#Asinacosatanatan2SQL}
+
+| SIN, COS, TAN, COT: ADB, ADQM, ADP |
+|:---
+| `SELECT ASIN(0.5) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
+| `SELECT ACOS(0.5) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
+| `SELECT ATAN(0.5) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
+| `SELECT ATAN2(3.0,2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
 
 <details markdown="block">
   <summary>
