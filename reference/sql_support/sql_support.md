@@ -161,37 +161,37 @@ has_toc: false
 
 | UPPER: ADB, ADQM, ADG, ADP
 |:---
-| `SELECT UPPER('abcdef') FROM table1 datasource_type = {'ADB' | \'ADP' | \'ADQM' | 'ADG'};` |
+| `SELECT UPPER('abcdef') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 ### LOWER {#LowerSQL}
 
 | LOWER: ADB, ADP
 |:---
-| `SELECT LOWER('ABCDEG') FROM table1 datasource_type = {'ADB' | \'ADP' | \'ADQM' | 'ADG'};` |
+| `SELECT LOWER('ABCDEG') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 ### SUBSTRING {#SubstringSQL}
 
 | SUBSTRING: ADB, ADQM, ADP
 |:---
-| `SELECT SUBSTRING('ABCDEG', 3, 2) FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM'};` |
+| `SELECT SUBSTRING('ABCDEG', 3, 2) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
 
 ### COALESCE {#CoalesceSQL}
 
 | COALESCE: ADB, ADG, ADP
 |:---
-| `SELECT COALESCE(boolean_col,true) FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADG'};` |
+| `SELECT COALESCE(boolean_col,true) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
 
 | COALESCE: ADB, ADQM, ADG, ADP
 |:---
-| `SELECT COALESCE(int_col,1) FROM table1 datasource_type = {'ADB' | \'ADP' | \'ADQM' | 'ADG'};` |
+| `SELECT COALESCE(int_col,1) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 | COALESCE: ADB, ADQM, ADP
 |:---
-| `SELECT COALESCE(bigint_col,1) FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM'};` |
+| `SELECT COALESCE(bigint_col,1) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
 
 | COALESCE: ADB, ADQM, ADG, ADP
 |:---
-| `SELECT COALESCE(int32_col,1) FROM table1 datasource_type = {'ADB' | \'ADP' | \'ADQM' | 'ADG'};` |
+| `SELECT COALESCE(int32_col,1) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 | COALESCE: ADB, ADP
 |:---
@@ -203,67 +203,67 @@ has_toc: false
 
 | COALESCE: ADB, ADQM, ADG, ADP
 |:---
-| `SELECT COALESCE(varchar_col,'1.0') FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADG'};` |
+| `SELECT COALESCE(varchar_col,'1.0') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
 | `SELECT COALESCE(CAST(varchar_col AS VARCHAR),'1.0') FROM table1 datasource_type = 'ADQM';` |
 
 
 | COALESCE: ADB, ADQM*, ADP
 |:---
-| `SELECT COALESCE(date_col,'2001-01-01') FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM'};` |
+| `SELECT COALESCE(date_col,'2001-01-01') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
 | \* возвращает дату как число
 
 | COALESCE: ADB, ADQM, ADP
 |:---
-| `SELECT COALESCE(date_col,CAST('2001-01-01' AS DATE)) FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM'};` |
+| `SELECT COALESCE(date_col,CAST('2001-01-01' AS DATE)) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
 
 | COALESCE: ADB, ADQM, ADP
 |:---
-| `SELECT COALESCE(time_col,'11:12:13') FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM'};` |
+| `SELECT COALESCE(time_col,'11:12:13') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
 
 | COALESCE: ADB, ADQM*, ADG, ADP
 |:---
-| `SELECT COALESCE(timestamp_col,'2001-01-01 11:12:13') FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM' | 'ADG'};` |
+| `SELECT COALESCE(timestamp_col,'2001-01-01 11:12:13') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 | \* возвращает дату как число
 
 | COALESCE: ADB, ADQM, ADP
 |:---
-| `SELECT COALESCE(uuid_col,'1') FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM'};` |
+| `SELECT COALESCE(uuid_col,'1') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
 
 | COALESCE: ADB, ADG, ADP
 |:---
-| `SELECT COALESCE(char_col,'1') FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADG'};` |
+| `SELECT COALESCE(char_col,'1') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
 
 | COALESCE: ADB, ADQM, ADP
 |:---
-| `SELECT COALESCE(link_col,'http://www.google.com') FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM'};` |
+| `SELECT COALESCE(link_col,'http://www.google.com') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
 
 ### TRIM {#TrimSQL}
 
 | TRIM: ADB, ADQM, ADG, ADP
 |:---
-| `SELECT TRIM('   ABC XYZ   ') FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM' | 'ADG'};` |
+| `SELECT TRIM('   ABC XYZ   ') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 ### REPLACE {#ReplaceSQL}
 
 | REPLACE: ADB, ADQM, ADG, ADP
 |:---
-| `SELECT REPLACE('  abc xyz  ','ab', 'x') FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM' | 'ADG'};` |
+| `SELECT REPLACE('  abc xyz  ','ab', 'x') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 ### CONCATENATION {#ConcatenationSQL}
 
 | CONCATENATION: ADB, ADQM, ADG, ADP
 |:---
-| `SELECT 'abc' || 'xyz' FROM table1 datasource_type = {'ADB' | \'ADP' | 'ADQM' | 'ADG'};` |
+| `SELECT 'abc' || 'xyz' FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 ### INITCAP {#InitcapSQL}
 
 | INITCAP: ADB, ADP
 |:---
-| `SELECT INITCAP('abc def ghi xyz') FROM table1 datasource_type = {'ADB' | \'ADP'};` |
+| `SELECT INITCAP('abc def ghi xyz') FROM table1 datasource_type = {'ADB' | 'ADP'};` |
 
 ## Математические функции и операторы {Mathfunctions}
 
-### ABS {AbsSQL}
+### ABS {#AbsSQL}
 
 | ABS: ADB, ADQM, ADG, ADP |
 |: ---
@@ -272,7 +272,7 @@ has_toc: false
 | `SELECT ABS(2.0) FROM table1 datasource_type = 'ADG';` |
 | `SELECT ABS(-2.5) FROM table1 datasource_type = 'ADP';` |
 
-### ROUND {RoundSQL}
+### ROUND {#RoundSQL}
 
 | ROUND: ADB, ADQM, ADG, ADP |
 |:---
