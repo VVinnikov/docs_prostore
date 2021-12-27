@@ -32,14 +32,14 @@ has_toc: false
 
 | CURRENT_DATE: ADB, ADQM, ADG, ADP
 |:---
-| 'SELECT a.*
+| `SELECT a.*
 from (
          SELECT b.id
          from (SELECT id from table2) b
          UNION ALL
          SELECT id
          from table1
-     ) as a datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'}';
+     ) as a datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'}`;
 
 
 ## Функции и операторы даты и времени {#Datetimefunctions}
