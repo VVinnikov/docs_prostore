@@ -26,6 +26,21 @@ has_toc: false
 имеют ограничения на использование некоторых функций в запросах, вызванные особенностями этих СУБД. 
 Наиболее полный синтаксис запросов доступен в ADB и ADP.
 
+## Функции и операторы соединения {#Joinfunctions}
+
+### UNION {#UnionSQL}
+
+| CURRENT_DATE: ADB, ADQM, ADG, ADP
+|:---
+| 'SELECT a.*
+from (
+         SELECT b.id
+         from (SELECT id from table2) b
+         UNION ALL
+         SELECT id
+         from table1
+     ) as a datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'}';
+
 
 ## Функции и операторы даты и времени {#Datetimefunctions}
 
@@ -210,7 +225,7 @@ has_toc: false
 | COALESCE: ADB, ADQM*, ADP
 |:---
 | `SELECT COALESCE(date_col,'2001-01-01') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
-| \* возвращает дату как число
+| * возвращает дату как число
 
 | COALESCE: ADB, ADQM, ADP
 |:---
@@ -223,7 +238,7 @@ has_toc: false
 | COALESCE: ADB, ADQM*, ADG, ADP
 |:---
 | `SELECT COALESCE(timestamp_col,'2001-01-01 11:12:13') FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
-| \* возвращает дату как число
+| * возвращает дату как число
 
 | COALESCE: ADB, ADQM, ADP
 |:---
@@ -329,19 +344,116 @@ has_toc: false
 
 | SIN, COS, TAN, COT: ADB, ADQM, ADP |
 |:---
-| `SELECT SIN(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
-| `SELECT COS(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
-| `SELECT TAN(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
-| `SELECT COT(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
+| `SELECT SIN(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+| `SELECT COS(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+| `SELECT TAN(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+| `SELECT COT(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
 
 ### ASIN, ACOS, ATAN, ATAN2 {#Asinacosatanatan2SQL}
 
 | SIN, COS, TAN, COT: ADB, ADQM, ADP |
 |:---
-| `SELECT ASIN(0.5) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
-| `SELECT ACOS(0.5) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
-| `SELECT ATAN(0.5) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
-| `SELECT ATAN2(3.0,2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | ADQM};` |
+| `SELECT ASIN(0.5) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+| `SELECT ACOS(0.5) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+| `SELECT ATAN(0.5) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+| `SELECT ATAN2(3.0,2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+
+### POWER, EXP*, LOG* {#PowerexplogSQL}
+
+| POWER, EXP, LN: ADB, ADQM*, ADP |
+|:---
+| `SELECT POWER(0.5,2) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+| `SELECT EXP(1.0) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+| `SELECT LN(2.18281828) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+| * Возвращает недостаточно точные значения для EXP и LN |
+
+### SQRT, CBRT {#SqrtcbrtSQL}
+
+| SQRT: ADB, ADQM, ADP |
+|:---
+| `SELECT SQRT(4) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+
+| CBRT: ADB, ADP |
+|:---
+| `SELECT CBRT(-8) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+
+### MOD {#ModSQL}
+
+| MOD: ADB, ADP |
+|:---
+| `SELECT MOD(8,3) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+
+### MAX, MIN {#MaxminSQL}
+
+| MAX: ADB, ADQM, ADG, ADP |
+|:---
+| `SELECT MAX(numeric_col) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+
+| MIN: ADB, ADQM, ADG, ADP |
+|:---
+| `SELECT MIN(numeric_col) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+
+### SUM, COUNT {#SumcountSQL}
+
+| SUM: ADB, ADQM, ADG, ADP |
+|:---
+| `SELECT SUM(numeric_col) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+
+| COUNT: ADB, ADQM, ADG, ADP |
+|:---
+| `SELECT COUNT(numeric_col) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+
+### AVG {#AvgSQL}
+
+| AVG: ADB*, ADQM*, ADG**, ADP* |
+|:---
+| `SELECT AVG(CAST(numeric_col AS DOUBLE)) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
+| `SELECT AVG(CAST(numeric_col AS FLOAT)) FROM table1 datasource_type = 'ADQM';` |
+| `SELECT AVG(numeric_col) FROM table1 datasource_type = 'ADG';` |
+| * Нет неявного преобразования из целочисленного типа |
+| ** Результат возвращается по каждому шарду |
+
+### COVAR {#CovarSQL}
+
+| COVAR_POP: ADB, ADQM, ADP |
+|:---
+| `SELECT COVAR_POP(CAST(numeric_col1 AS DOUBLE), numeric_col2) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+| `SELECT COVAR_POP(CAST(numeric_col1 AS FLOAT), numeric_col2) FROM table1 datasource_type = 'ADQM';` |
+| `SELECT CAST(COVAR_POP(numeric_col1, numeric_col2) AS FLOAT) FROM table1 datasource_type = 'ADQM';` |
+
+| COVAR_SAMP: ADB, ADQM, ADP |
+|:---
+| `SELECT COVAR_SAMP(CAST(numeric_col1 AS DOUBLE), numeric_col2) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+| `SELECT COVAR_SAMP(CAST(numeric_col1 AS FLOAT), numeric_col2) FROM table1 datasource_type = 'ADQM';` |
+| `SELECT CAST(COVAR_SAMP(numeric_col1, numeric_col2) AS FLOAT) FROM table1 datasource_type = 'ADQM';` |
+
+### VAR {#VarSQL}
+
+| VAR_POP: ADB, ADQM, ADP |
+|:---
+| `SELECT CAST(VAR_POP(numeric_col, numeric_col) AS DOUBLE) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+| `SELECT CAST(VAR_POP(numeric_col, numeric_col) AS FLOAT) FROM table1 datasource_type = 'ADQM';` |
+| `SELECT VAR_POP(CAST(numeric_col AS FLOAT)) FROM table1 datasource_type = 'ADQM';` |
+
+| VAR_SAMP: ADB, ADQM, ADP |
+|:---
+| `SELECT CAST(VAR_SAMP(numeric_col, numeric_col) AS DOUBLE) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+| `SELECT CAST(VAR_POP(numeric_col, numeric_col) AS FLOAT) FROM table1 datasource_type = 'ADQM';` |
+| `SELECT VAR_POP(CAST(numeric_col AS FLOAT)) FROM table1 datasource_type = 'ADQM';` |
+
+### STDDEV {#StddevSQL}
+
+| STDDEV_POP: ADB, ADQM, ADP |
+|:---
+| `SELECT CAST(STDDEV_POP(numeric_col, numeric_col) AS DOUBLE) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+| `SELECT CAST(STDDEV_POP(numeric_col, numeric_col) AS FLOAT) FROM table1 datasource_type = 'ADQM';` |
+| `SELECT STDDEV_POP(CAST(numeric_col AS FLOAT)) FROM table1 datasource_type = 'ADQM';` |
+
+| STDDEV_SAMP: ADB, ADQM, ADP |
+|:---
+| `SELECT CAST(STDDEV_SAMP(numeric_col, numeric_col) AS DOUBLE) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+| `SELECT CAST(STDDEV_POP(numeric_col, numeric_col) AS FLOAT) FROM table1 datasource_type = 'ADQM';` |
+| `SELECT STDDEV_POP(CAST(numeric_col AS FLOAT)) FROM table1 datasource_type = 'ADQM';` |
 
 <details markdown="block">
   <summary>
