@@ -127,7 +127,7 @@ has_toc: false
 
 ### MONTH, QUARTER, WEEK, YEAR {#MonthSQL}
 
-| MONTH(), QUARTER(), WEEK(), YEAR(): ADB, ADP
+| MONTH, QUARTER, WEEK, YEAR: ADB, ADP
 |:---
 | `SELECT CAST(MONTH(DATE '2001-02-16') AS INT) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
 | `SELECT CAST(MONTH(TIMESTAMP '2001-02-16 20:38:40') AS INT) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
@@ -261,26 +261,20 @@ has_toc: false
 |:---
 | `SELECT INITCAP('abc def ghi xyz') FROM table1 datasource_type = {'ADB' | 'ADP'};` |
 
-## Математические функции и операторы {Mathfunctions}
+## Математические функции и операторы {#Mathfunctions}
 
 ### ABS {#AbsSQL}
 
 | ABS: ADB, ADQM, ADG, ADP |
 |: ---
-| `SELECT ABS(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
+| `SELECT ABS(-2.0) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
 | `SELECT ABS(-2) FROM table1 datasource_type = 'ADQM';` |
-| `SELECT ABS(2.0) FROM table1 datasource_type = 'ADG';` |
-| `SELECT ABS(-2.5) FROM table1 datasource_type = 'ADP';` |
 
 ### ROUND {#RoundSQL}
 
 | ROUND: ADB, ADQM, ADG, ADP |
 |:---
-| `SELECT ROUND(-2.5) FROM table1 datasource_type = {'ADB' | 'ADP'};` |
-| `SELECT ROUND(-2.3) FROM table1 datasource_type = 'ADQM';` |
-| `SELECT ROUND(-2.3) FROM table1 datasource_type = 'ADG';` |
-| `SELECT ROUND(2.5) FROM table1 datasource_type = 'ADP';` |
-
+| `SELECT ROUND(-2.5) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 
 
