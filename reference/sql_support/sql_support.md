@@ -423,7 +423,7 @@ has_toc: false
 
 ### AVG {#AvgSQL}
 
-| AVG: ADB*, ADQM*, ADG**, ADP* |
+| AVG: ADB\*, ADQM\*, ADG\*\*, ADP\* |
 |:---
 | `SELECT AVG(CAST(numeric_col AS DOUBLE)) FROM table1 datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
 | `SELECT AVG(CAST(numeric_col AS FLOAT)) FROM table1 datasource_type = 'ADQM';` |
