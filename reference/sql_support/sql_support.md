@@ -42,7 +42,7 @@ has_toc: false
 
 | INTERSECT: ADB, ADG, ADP
 |:---
-| `SELECT a.*`<br>from (`<br>`         SELECT b.id`<br>`         from (SELECT id from table2) b`<br>`         INTERSECT`<br>`         SELECT id`<br>`         from table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
+| `SELECT a.*`<br>`from (`<br>`         SELECT b.id`<br>`         from (SELECT id from table2) b`<br>`         INTERSECT`<br>`         SELECT id`<br>`         from table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
 
 ### EXCEPT {#ExceptSQL}
 
@@ -52,7 +52,7 @@ has_toc: false
 
 | EXCEPT: Не поддерживается
 |:---
-| `SELECT id from table1 order by id limit 2`<br>`EXCEPT`<br>`SELECT id from table3;`
+| `SELECT id from table1 order by id limit 2`<br>`EXCEPT`<br>`SELECT id from table3;` |
 
 ### JOIN {#JoinSQL}
 
