@@ -30,10 +30,35 @@ has_toc: false
 
 ### UNION {#UnionSQL}
 
-| CURRENT_DATE: ADB, ADQM, ADG, ADP
+| UNION ALL: ADB, ADQM, ADG, ADP
 |:---
-| `SELECT a.*`<br>`from (`<br>`         SELECT b.id`<br>`         from (SELECT id from table2) b`<br>`         UNION ALL`<br>`         SELECT id`<br>`         from table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'}`; |
+| `SELECT a.*`<br>`from (`<br>`         SELECT b.id`<br>`         from (SELECT id from table2) b`<br>`         UNION ALL`<br>`         SELECT id`<br>`         from table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
+| UNION ALL: Не поддерживается
+|:---
+| `SELECT id from table1 order by id limit 2`<br>`UNION ALL`<br>`SELECT id from db99990.table3;` |
+
+### INTERSECT {#IntersectSQL}
+
+| INTERSECT: ADB, ADG, ADP
+|:---
+| `SELECT a.*`<br>from (`<br>`         SELECT b.id`<br>`         from (SELECT id from table2) b`<br>`         INTERSECT`<br>`         SELECT id`<br>`         from table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
+
+### EXCEPT {#ExceptSQL}
+
+| EXCEPT: ADB, ADG, ADP
+|:---
+| `SELECT a.*`<br>`from (`<br>`         SELECT b.id`<br>`         from (SELECT id from table2) b`<br>`         EXCEPT`<br>`         SELECT id`<br>`         from table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
+
+| EXCEPT: Не поддерживается
+|:---
+| `SELECT id from table1 order by id limit 2`<br>`EXCEPT`<br>`SELECT id from table3;`
+
+### JOIN {#JoinSQL}
+
+| JOIN: ADB, ADQM, ADG, ADP
+|:---
+| `SELECT * FROM table1`<br>`    LEFT JOIN (SELECT * FROM table3 t3) t2 ON table1.id = t2.id`<br>`WHERE table1.id > 10 AND t2.id > 5`<br>`ORDER BY table1.id`<br>`DATASOURCE_TYPE = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 ## Функции и операторы даты и времени {#Datetimefunctions}
 
