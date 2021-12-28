@@ -56,9 +56,35 @@ has_toc: false
 
 ### JOIN {#JoinSQL}
 
-| JOIN: ADB, ADQM, ADG, ADP
+| LEFT JOIN: ADB, ADQM, ADG, ADP
 |:---
 | `SELECT * FROM table1`<br>`    LEFT JOIN (SELECT * FROM table3 t3) t2 ON table1.id = t2.id`<br>`WHERE table1.id > 10 AND t2.id > 5`<br>`ORDER BY table1.id`<br>`DATASOURCE_TYPE = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+
+| LEFT JOIN: Не поддерживается
+|:---
+| `SELECT * FROM table1`<br>`    LEFT JOIN (SELECT * FROM table3 t3 WHERE t3.id > 5) t2 ON table1.id = t2.id`<br>`WHERE table3.id > 10`<br>`ORDER BY table3.id;` |
+
+| RIGHT JOIN: ADB, ADQM, ADP
+|:---
+| `SELECT * FROM table1 t1`<br>`RIGHT JOIN table3 t3 on t1.id = t3.id`<br>`ORDER BY t1.id limit 5 datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+
+| RIGHT JOIN: Не поддерживается
+|:---
+| `SELECT * FROM table1`<br>`    RIGHT JOIN (SELECT * FROM table3 t3 WHERE t3.id > 5) t2 ON table1.id = t2.id`<br>`WHERE table3.id > 10`<br>`ORDER BY table3.id;` |
+
+| FULL JOIN: ADB, ADP
+|:---
+| `SELECT * FROM table1 t1`<br>`FULL JOIN`<>br` table2 t2 on t1.category_id = t2.id`<br>`ORDER BY t1.id limit 6 datasource_type = {'ADB' | 'ADP'};` |
+
+| CROSS JOIN: ADB, ADG, ADP
+|:---
+| `SELECT * FROM table1 t1 `<br>`CROSS JOIN table2 t2`<br>`ORDER BY t1.id, t2.category_name limit 5`<br>`datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
+
+| MULTI-TABLE JOIN: ADB, ADQM, ADG, ADP
+|:---
+| `SELECT * FROM testdb634.territories`<br>`LEFT JOIN testdb634.employee_territories ON testdb634.territories.territory_id = testdb634.employee_territories.territory_id`<br>`LEFT JOIN testdb634.employees ON testdb634.territories.territory_id = testdb634.employees.territory_id`<br>`WHERE testdb634.employees.last_name is NOT NULL`<br>`ORDER BY testdb634.territories.territory_id`<br>`datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+| `SELECT * FROM testdb634.territories`<br>`RIGHT JOIN testdb634.employee_territories ON testdb634.territories.territory_id = testdb634.employee_territories.territory_id`<br>`RIGHT JOIN testdb634.employees ON testdb634.territories.territory_id = testdb634.employees.territory_id`<br>`WHERE testdb634.employees.last_name is NOT NULL`<br>`ORDER BY testdb634.territories.territory_id`<br>`datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+
 
 ## Функции и операторы даты и времени {#Datetimefunctions}
 
