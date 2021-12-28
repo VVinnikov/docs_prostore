@@ -32,27 +32,27 @@ has_toc: false
 
 | UNION ALL: ADB, ADQM, ADG, ADP
 |:---
-| `SELECT a.*`<br>`from (`<br>`         SELECT b.id`<br>`         from (SELECT id from table2) b`<br>`         UNION ALL`<br>`         SELECT id`<br>`         from table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+| `SELECT a.*`<br>`FROM (`<br>`         SELECT b.id`<br>`         FROM (SELECT id from table2) b`<br>`         UNION ALL`<br>`         SELECT id`<br>`         FROM table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 | UNION ALL: Не поддерживается
 |:---
-| `SELECT id from table1 order by id limit 2`<br>`UNION ALL`<br>`SELECT id from db99990.table3;` |
+| `SELECT id FROM table1 order by id limit 2`<br>`UNION ALL`<br>`SELECT id from db99990.table3;` |
 
 ### INTERSECT {#IntersectSQL}
 
 | INTERSECT: ADB, ADG, ADP
 |:---
-| `SELECT a.*`<br>`from (`<br>`         SELECT b.id`<br>`         from (SELECT id from table2) b`<br>`         INTERSECT`<br>`         SELECT id`<br>`         from table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
+| `SELECT a.*`<br>`FROM (`<br>`         SELECT b.id`<br>`         FROM (SELECT id from table2) b`<br>`         INTERSECT`<br>`         SELECT id`<br>`         FROM table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
 
 ### EXCEPT {#ExceptSQL}
 
 | EXCEPT: ADB, ADG, ADP
 |:---
-| `SELECT a.*`<br>`from (`<br>`         SELECT b.id`<br>`         from (SELECT id from table2) b`<br>`         EXCEPT`<br>`         SELECT id`<br>`         from table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
+| `SELECT a.*`<br>`FROM (`<br>`         SELECT b.id`<br>`         FROM (SELECT id from table2) b`<br>`         EXCEPT`<br>`         SELECT id`<br>`         FROM table1`<br>`     ) as a datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
 
 | EXCEPT: Не поддерживается
 |:---
-| `SELECT id from table1 order by id limit 2`<br>`EXCEPT`<br>`SELECT id from table3;` |
+| `SELECT id FROM table1 order by id limit 2`<br>`EXCEPT`<br>`SELECT id from table3;` |
 
 ### JOIN {#JoinSQL}
 
