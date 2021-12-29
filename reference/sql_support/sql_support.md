@@ -82,8 +82,8 @@ has_toc: false
 
 | MULTI-TABLE JOIN: ADB, ADQM, ADG, ADP
 |:---
-| `SELECT * FROM testdb634.territories`<br>`LEFT JOIN testdb634.employee_territories ON testdb634.territories.territory_id = testdb634.employee_territories.territory_id`<br>`LEFT JOIN testdb634.employees ON testdb634.territories.territory_id = testdb634.employees.territory_id`<br>`WHERE testdb634.employees.last_name is NOT NULL`<br>`ORDER BY testdb634.territories.territory_id`<br>`datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
-| `SELECT * FROM testdb634.territories`<br>`RIGHT JOIN testdb634.employee_territories ON testdb634.territories.territory_id = testdb634.employee_territories.territory_id`<br>`RIGHT JOIN testdb634.employees ON testdb634.territories.territory_id = testdb634.employees.territory_id`<br>`WHERE testdb634.employees.last_name is NOT NULL`<br>`ORDER BY testdb634.territories.territory_id`<br>`datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+| `SELECT * FROM table1`<br>`LEFT JOIN table2 ON table1.territory_id = table2.territory_id`<br>`LEFT JOIN table3 ON table1.territory_id = table3.territory_id`<br>`WHERE table3.last_name is NOT NULL`<br>`ORDER BY table1.territory_id`<br>`datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+| `SELECT * FROM table1`<br>`RIGHT JOIN table2 ON table1.territory_id = table2.territory_id`<br>`RIGHT JOIN table3 ON table1.territory_id = table3.territory_id`<br>`WHERE table3.last_name is NOT NULL`<br>`ORDER BY table1.territory_id`<br>`datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
 
 
 ## Функции и операторы даты и времени {#Datetimefunctions}
