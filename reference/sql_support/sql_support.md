@@ -80,10 +80,13 @@ has_toc: false
 |:---
 | `SELECT * FROM table1 t1 `<br>`CROSS JOIN table2 t2`<br>`ORDER BY t1.id, t2.category_name limit 5`<br>`datasource_type = {'ADB' | 'ADP' | 'ADQM'};` |
 
-| MULTI-TABLE JOIN: ADB, ADQM, ADG, ADP
+| MULTI-TABLE LEFT JOIN: ADB, ADG, ADP
 |:---
-| `SELECT * FROM table1`<br>`LEFT JOIN table2 ON table1.territory_id = table2.territory_id`<br>`LEFT JOIN table3 ON table1.territory_id = table3.territory_id`<br>`WHERE table3.last_name is NOT NULL`<br>`ORDER BY table1.territory_id`<br>`datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
-| `SELECT * FROM table1`<br>`RIGHT JOIN table2 ON table1.territory_id = table2.territory_id`<br>`RIGHT JOIN table3 ON table1.territory_id = table3.territory_id`<br>`WHERE table3.last_name is NOT NULL`<br>`ORDER BY table1.territory_id`<br>`datasource_type = {'ADB' | 'ADP' | 'ADQM' | 'ADG'};` |
+| `SELECT * FROM table1`<br>`LEFT JOIN table2 ON table1.territory_id = table2.territory_id`<br>`LEFT JOIN table3 ON table1.territory_id = table3.territory_id`<br>`WHERE table3.last_name is NOT NULL`<br>`ORDER BY table1.territory_id`<br>`datasource_type = {'ADB' | 'ADP' | 'ADG'};` |
+
+| MULTI-TABLE RIGHT JOIN: ADB, ADP
+|:---
+| `SELECT * FROM table1`<br>`RIGHT JOIN table2 ON table1.territory_id = table2.territory_id`<br>`RIGHT JOIN table3 ON table1.territory_id = table3.territory_id`<br>`WHERE table3.last_name is NOT NULL`<br>`ORDER BY table1.territory_id`<br>`datasource_type = {'ADB' | 'ADP'};` |
 
 
 ## Функции и операторы даты и времени {#Datetimefunctions}
